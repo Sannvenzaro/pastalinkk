@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="container auth-container">
+            <!-- FIX: Ditambahkan method="POST" untuk mencegah data terkirim via GET -->
+            <form id="login-form" class="form-container" method="POST">
+                <h1>Login</h1>
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <a href="/forgot-password" class="link-muted">Lupa Password?</a>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                <p style="text-align: center; margin-top: 1rem;">Belum punya akun? <a href="/register">Daftar di sini</a></p>
+            </form>
+        </div>
+    </div>
+    <div id="notification-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+    <script type="module" src="/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+/* home.css */
+
+.home-container {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.sidebar {
+    flex: 0 0 300px;
+    position: sticky;
+    top: 1rem;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+#user-panel {
+    padding: 1.5rem;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.user-panel-login {
+    text-align: center;
+}
+
+.user-panel-login h3 {
+    font-size: 1.2rem;
+}
+
+.user-panel-login p {
+    margin: 1rem 0;
+    color: var(--text-muted-color);
+}
+
+.paste-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* --- STYLING BARU UNTUK PASTE ITEM --- */
+.paste-list-item {
+    display: flex; /* Menggunakan flexbox untuk layout */
+    align-items: center; /* Menyelaraskan avatar dan konten secara vertikal */
+    gap: 1rem; /* Jarak antara avatar dan konten */
+    padding: 1rem 1.5rem;
+    background-color: var(--surface-color); /* Ubah warna agar sedikit beda dari background */
+    border: 1px solid var(--border-color);
+    border-radius: 12px; /* Radius lebih besar agar lebih modern */
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.paste-list-item:hover {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+.paste-author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.paste-author-avatar:hover {
+    transform: scale(1.1);
+}
+
+.paste-content {
+    flex: 1; /* Konten mengambil sisa ruang */
+    min-width: 0;
+}
+
+.paste-list-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.paste-list-item .author-line {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Jarak antar elemen di baris author */
+}
+
+/* --- END STYLING BARU --- */
+
+@media (max-width: 900px) {
+    .home-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: static;
+        width: 100%;
+        order: 2; /* Sidebar pindah ke bawah di mobile */
+        margin-top: 1.5rem;
+    }
+    .main-content {
+        width: 100%;
+        order: 1;
+    }
+}

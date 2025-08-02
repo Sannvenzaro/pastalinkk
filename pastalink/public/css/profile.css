@@ -1,0 +1,128 @@
+/* public/css/profile.css */
+
+.profile-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-pic-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid var(--border-color);
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.profile-username {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-username h1 {
+    margin-bottom: 0;
+    font-size: 1.75rem;
+}
+
+.profile-actions {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.profile-bio {
+    color: var(--text-muted-color);
+    line-height: 1.5;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.stat-item span {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+}
+
+.profile-content h2 {
+    margin-bottom: 1rem;
+}
+
+.paste-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.grid-item {
+    position: relative;
+    display: block;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 150px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.grid-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.grid-item pre {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-muted-color);
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+}
+
+.grid-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(30,30,30,0.9), rgba(30,30,30,0));
+    padding: 1.5rem 0.75rem 0.75rem;
+}
+
+.grid-item-title {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .profile-actions {
+        justify-content: center;
+    }
+    .profile-stats {
+        flex-wrap: wrap;
+    }
+}

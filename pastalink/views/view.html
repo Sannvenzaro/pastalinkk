@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lihat Paste</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/paste.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div id="navbar"></div>
+        <div class="container" id="paste-view-container"><p style="text-align: center; padding: 2rem;">Memuat paste...</p></div>
+    </div>
+    <div id="report-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2>Laporkan Paste</h2><form id="report-form" class="form-container"><label for="report-reason">Alasan Laporan:</label><textarea id="report-reason" name="reason" rows="4" required placeholder="Jelaskan mengapa paste ini tidak pantas..."></textarea><button type="submit" class="btn btn-danger">Kirim Laporan</button></form></div></div>
+    <div id="notification-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2 id="modal-title"></h2><p id="modal-message"></p></div></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script type="module" src="/js/paste-view.js"></script>
+</body>
+</html>

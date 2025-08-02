@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat Paste Baru</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/paste.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div id="navbar"></div>
+        <div class="container">
+            <form id="create-paste-form" class="form-container">
+                <h1>Buat Paste Baru</h1>
+                <p class="text-muted" style="margin-top: -1rem; margin-bottom: 1rem;">Tempel kodemu di sini dan dapatkan poin leaderboard!</p>
+                <input type="text" name="title" placeholder="Judul Paste (opsional)">
+                <textarea name="content" placeholder="console.log('Hello, Leaderboard!');" required></textarea>
+                <div class="form-options">
+                    <div class="form-group">
+                        <label for="privacy">Privasi:</label>
+                        <select name="privacy" id="privacy">
+                            <option value="public" selected>Public (Tampil di halaman utama)</option>
+                            <option value="unlisted">Unlisted (Hanya via link)</option>
+                            <option value="private">Private (Hanya Anda yang bisa lihat)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pastePassword">Password (Opsional):</label>
+                        <input type="password" name="pastePassword" id="pastePassword" placeholder="Biarkan kosong jika tidak perlu">
+                    </div>
+                </div>
+                <div class="form-actions"><button type="submit" class="btn btn-primary">Buat Paste</button></div>
+            </form>
+        </div>
+    </div>
+    <div id="notification-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2 id="modal-title"></h2><p id="modal-message"></p></div></div>
+    <script type="module" src="/js/paste-form.js"></script>
+</body>
+</html>

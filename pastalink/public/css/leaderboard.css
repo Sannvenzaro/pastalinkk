@@ -1,0 +1,77 @@
+#leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#leaderboard-table th,
+#leaderboard-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+#leaderboard-table thead th {
+    color: var(--text-muted-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+#leaderboard-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.rank {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 80px;
+}
+
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* DITAMBAHKAN: Perbaikan untuk nama user yang panjang di layar kecil */
+.user-cell > div {
+    min-width: 0; /* Memastikan text-overflow bekerja di dalam flexbox */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.points {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+.profile-pic-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; /* Mencegah gambar menyusut */
+}
+
+/* Blok media query yang diperbaiki */
+@media (max-width: 768px) {
+    /* 
+      DIHAPUS: Aturan flex-direction: column; dihapus dari sini.
+      Ini adalah penyebab utama nama berada di bawah foto profil.
+      Dengan menghapusnya, layout akan tetap menjadi baris (side-by-side).
+    */
+    
+    /* Mengurangi padding pada layar kecil agar lebih pas */
+    #leaderboard-table th,
+    #leaderboard-table td {
+        padding: 0.75rem;
+    }
+
+    .user-cell {
+        gap: 0.75rem; /* Mengurangi jarak antara foto dan nama */
+    }
+}

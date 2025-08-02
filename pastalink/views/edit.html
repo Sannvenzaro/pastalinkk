@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Paste</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/paste.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div id="navbar"></div>
+        <div class="container">
+            <form id="edit-paste-form" class="form-container">
+                <h1>Edit Paste</h1>
+                <p class="text-muted" style="margin-top: -1rem; margin-bottom: 1rem;">Ubah detail paste Anda di bawah ini.</p>
+                <div id="form-content-wrapper">
+                    <p>Memuat data paste...</p>
+                </div>
+                <div class="form-actions">
+                    <a href="#" id="cancel-edit-btn" class="btn">Batal</a>
+                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="notification-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2 id="modal-title"></h2><p id="modal-message"></p></div></div>
+    <script type="module" src="/js/paste-form.js"></script>
+</body>
+</html>
