@@ -65,7 +65,16 @@ const upload = multer({ storage: storage, limits: { fileSize: 5 * 1024 * 1024 } 
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// CDN-like caching for our static assets (CSS, JS)
+app.use('/cdn', express.static(path.join(__dirname, 'public'), {
+  maxAge: '1y', // Cache for 1 year
+  immutable: true // Tell browser the file will not change
+}));
+
+// Serve other static files (like uploads, images) without aggressive caching
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(cookieParser());
 app.use(session({
   secret: process.env.SESSION_SECRET || 'super-secret-key-for-development',
