@@ -20,6 +20,7 @@
 
 .profile-info {
     flex-grow: 1;
+    min-width: 0; /* FIX: Mencegah teks bio/username meluber */
 }
 
 .profile-username {
@@ -43,6 +44,7 @@
 .profile-bio {
     color: var(--text-muted-color);
     line-height: 1.5;
+    word-wrap: break-word; /* FIX: Memastikan bio yang panjang akan wrap */
 }
 
 .profile-stats {
@@ -113,6 +115,7 @@
     font-weight: 500;
 }
 
+/* FIX: Tampilan profile di mobile dibuat lebih rapi */
 @media (max-width: 768px) {
     .profile-header {
         flex-direction: column;

@@ -1,6 +1,7 @@
 #leaderboard-table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed; /* FIX: Mencegah kolom melebar tak terkendali */
 }
 
 #leaderboard-table th,
@@ -35,7 +36,7 @@
     gap: 1rem;
 }
 
-/* DITAMBAHKAN: Perbaikan untuk nama user yang panjang di layar kecil */
+/* FIX: Perbaikan untuk nama user yang panjang agar tidak merusak layout */
 .user-cell > div {
     min-width: 0; /* Memastikan text-overflow bekerja di dalam flexbox */
     white-space: nowrap;
@@ -47,6 +48,7 @@
     font-weight: bold;
     font-size: 1.1rem;
     text-align: right;
+    width: 100px; /* Memberi lebar tetap pada kolom skor */
 }
 
 .profile-pic-small {
@@ -57,21 +59,16 @@
     flex-shrink: 0; /* Mencegah gambar menyusut */
 }
 
-/* Blok media query yang diperbaiki */
+/* FIX: Blok media query diperbaiki agar tidak lagi menumpuk user & foto */
 @media (max-width: 768px) {
-    /* 
-      DIHAPUS: Aturan flex-direction: column; dihapus dari sini.
-      Ini adalah penyebab utama nama berada di bawah foto profil.
-      Dengan menghapusnya, layout akan tetap menjadi baris (side-by-side).
-    */
+    /* Aturan flex-direction: column; DIHAPUS karena menyebabkan tampilan rusak */
     
-    /* Mengurangi padding pada layar kecil agar lebih pas */
     #leaderboard-table th,
     #leaderboard-table td {
         padding: 0.75rem;
     }
 
     .user-cell {
-        gap: 0.75rem; /* Mengurangi jarak antara foto dan nama */
+        gap: 0.75rem;
     }
 }

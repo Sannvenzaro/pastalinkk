@@ -14,7 +14,7 @@
 
 .main-content {
     flex: 1;
-    min-width: 0;
+    min-width: 0; /* FIX: Mencegah konten utama meluber */
 }
 
 #user-panel {
@@ -43,15 +43,15 @@
     gap: 1rem;
 }
 
-/* --- STYLING BARU UNTUK PASTE ITEM --- */
+/* FIX: Tampilan item paste dibuat lebih modern dan rapi */
 .paste-list-item {
-    display: flex; /* Menggunakan flexbox untuk layout */
-    align-items: center; /* Menyelaraskan avatar dan konten secara vertikal */
-    gap: 1rem; /* Jarak antara avatar dan konten */
+    display: flex;
+    align-items: center; 
+    gap: 1rem; 
     padding: 1rem 1.5rem;
-    background-color: var(--surface-color); /* Ubah warna agar sedikit beda dari background */
+    background-color: var(--surface-color);
     border: 1px solid var(--border-color);
-    border-radius: 12px; /* Radius lebih besar agar lebih modern */
+    border-radius: 12px;
     transition: background-color 0.2s, border-color 0.2s;
 }
 
@@ -66,16 +66,12 @@
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--border-color);
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-.paste-author-avatar:hover {
-    transform: scale(1.1);
+    flex-shrink: 0; /* Mencegah gambar mengecil */
 }
 
 .paste-content {
-    flex: 1; /* Konten mengambil sisa ruang */
-    min-width: 0;
+    flex: 1;
+    min-width: 0; /* Penting agar text-overflow bekerja */
 }
 
 .paste-list-item h3 {
@@ -93,10 +89,8 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.5rem; /* Jarak antar elemen di baris author */
+    gap: 0.5rem;
 }
-
-/* --- END STYLING BARU --- */
 
 @media (max-width: 900px) {
     .home-container {
@@ -105,7 +99,7 @@
     .sidebar {
         position: static;
         width: 100%;
-        order: 2; /* Sidebar pindah ke bawah di mobile */
+        order: 2;
         margin-top: 1.5rem;
     }
     .main-content {

@@ -9,6 +9,7 @@
     background-color: var(--bg-color);
     border-left: 4px solid var(--primary-color);
     border-radius: 4px;
+    word-wrap: break-word; /* Mencegah teks notif meluber */
 }
 
 .notification-item.read {
