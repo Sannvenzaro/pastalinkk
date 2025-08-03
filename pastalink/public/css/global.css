@@ -1,4 +1,4 @@
-/* global.css (FIXED - THE !IMPORTANT FIX) */
+/* global.css (THE DEFINITIVE FIX FOR INVISIBLE PLACEHOLDERS) */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
@@ -17,23 +17,10 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { 
-    font-family: var(--font-sans); 
-    background-color: var(--bg-color); 
-    color: var(--text-color); 
-    line-height: 1.6; 
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
+body { font-family: var(--font-sans); background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; overflow-wrap: break-word; word-wrap: break-word; }
 a { color: var(--primary-color); text-decoration: none; transition: color 0.2s; }
 a:hover { color: #47b5ff; }
-h1,h2,h3 { 
-    color: var(--text-color); 
-    margin-bottom: 1rem; 
-    font-weight: 700; 
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
+h1,h2,h3 { color: var(--text-color); margin-bottom: 1rem; font-weight: 700; overflow-wrap: break-word; word-wrap: break-word; }
 img { max-width: 100%; height: auto; display: block; }
 .page-wrapper { max-width: 1200px; margin: 1rem auto; padding: 0 1rem; }
 .container { width: 100%; padding: var(--container-padding); background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; }
@@ -68,24 +55,39 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-subtle:hover { color: var(--text-color); }
 
 /* --- Forms (Global) --- */
-.form-container input, 
-.form-container textarea, 
-.form-container select {
+.form-container input, .form-container textarea, .form-container select {
     width: 100%;
     padding: 0.8rem;
     background-color: var(--bg-color);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    /* FIX PAMUNGKAS: Paksa warna teks menjadi terang, mengalahkan default browser */
-    color: var(--text-color) !important; 
+    color: var(--text-color) !important; /* Safety net for typed text */
     font-family: var(--font-sans);
     font-size: 1rem;
     transition: border-color 0.2s;
 }
 
-.form-container input:focus, 
-.form-container textarea:focus, 
-.form-container select:focus {
+/* 
+  THE REAL, ACTUAL, FINAL FIX FOR INVISIBLE PLACEHOLDERS
+  This targets the placeholder text specifically.
+*/
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+  color: var(--text-muted-color);
+  opacity: 1; /* Override Firefox's default opacity */
+}
+/* For older browsers */
+.form-container input::-webkit-input-placeholder,
+.form-container textarea::-webkit-input-placeholder {
+  color: var(--text-muted-color);
+}
+.form-container input:-ms-input-placeholder,
+.form-container textarea:-ms-input-placeholder {
+  color: var(--text-muted-color);
+}
+
+
+.form-container input:focus, .form-container textarea:focus, .form-container select:focus {
     border-color: var(--primary-color);
     outline: none;
 }
