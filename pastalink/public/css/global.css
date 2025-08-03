@@ -58,7 +58,7 @@ img { max-width: 100%; height: auto; display: block; }
 .form-container input, .form-container textarea, .form-container select {
     width: 100%;
     padding: 0.8rem;
-    background-color: var(--bg-color);
+    background-color: var(--surface-color); /* FIX: Menggunakan warna surface agar kontras lebih baik */
     border: 1px solid var(--border-color);
     border-radius: 6px;
     color: var(--text-color) !important; /* Safety net for typed text */
@@ -121,7 +121,29 @@ img { max-width: 100%; height: auto; display: block; }
     .btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; }
 }
 @media (max-width: 600px) {
-    #navbar { flex-direction: column; align-items: stretch; gap: 0.75rem; }
-    .navbar-left-section, .navbar-right-section { width: 100%; justify-content: center; }
-    .navbar-right-section .btn-primary { flex-grow: 1; }
+    #navbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    .navbar-left-section, .navbar-right-section {
+        width: 100%;
+        justify-content: space-between; /* Menata tombol agar lebih seimbang */
+        align-items: center;
+    }
+
+    /* Untuk tombol login/daftar, buat mereka mengisi ruang secara merata */
+    .navbar-auth-buttons {
+        display: flex;
+        width: 100%;
+        gap: 0.5rem;
+    }
+    .navbar-auth-buttons .btn {
+        flex-grow: 1;
+    }
+
+    /* Pastikan tombol "Buat Paste" tidak terlalu mendominasi */
+    .navbar-right-section .btn-primary {
+        flex-grow: 0; /* Hapus flex-grow agar ukurannya normal */
+    }
 }
