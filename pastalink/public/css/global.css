@@ -1,4 +1,4 @@
-/* global.css (FIXED - Final Version) */
+/* global.css (FINAL FIX for Navbar) */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
@@ -17,21 +17,16 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 body { 
     font-family: var(--font-sans); 
     background-color: var(--bg-color); 
     color: var(--text-color); 
     line-height: 1.6; 
-    /* FIX UTAMA: Memaksa teks untuk wrap di seluruh halaman */
     overflow-wrap: break-word;
-    word-wrap: break-word; /* Alias untuk browser lama */
+    word-wrap: break-word;
 }
-
 a { color: var(--primary-color); text-decoration: none; transition: color 0.2s; }
 a:hover { color: #47b5ff; }
-
-/* FIX: Memastikan semua heading juga mengikuti aturan word-wrap */
 h1,h2,h3 { 
     color: var(--text-color); 
     margin-bottom: 1rem; 
@@ -39,7 +34,6 @@ h1,h2,h3 {
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
-
 img { max-width: 100%; height: auto; display: block; }
 .page-wrapper { max-width: 1200px; margin: 1rem auto; padding: 0 1rem; }
 .container { width: 100%; padding: var(--container-padding); background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 12px; }
@@ -51,7 +45,7 @@ img { max-width: 100%; height: auto; display: block; }
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* wrap tetap ada untuk layar tablet/medium */
     padding: 0.75rem 1.5rem;
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
@@ -86,30 +80,9 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-subtle:hover { color: var(--text-color); }
 
 /* --- Forms (Global) --- */
-.form-container input, 
-.form-container textarea, 
-.form-container select {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    color: var(--text-color);
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    transition: border-color 0.2s;
-}
-
-.form-container input:focus, 
-.form-container textarea:focus, 
-.form-container select:focus {
-    border-color: var(--primary-color);
-    outline: none;
-}
-.form-container textarea {
-    font-family: var(--font-mono);
-    resize: vertical;
-}
+.form-container input, .form-container textarea, .form-container select { width: 100%; padding: 0.8rem; background-color: var(--bg-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); font-family: var(--font-sans); font-size: 1rem; transition: border-color 0.2s; }
+.form-container input:focus, .form-container textarea:focus, .form-container select:focus { border-color: var(--primary-color); outline: none; }
+.form-container textarea { font-family: var(--font-mono); resize: vertical; }
 
 /* --- Badge --- */
 .badge-container { display: inline-flex; align-items: center; gap: 0.3rem; }
@@ -131,8 +104,32 @@ img { max-width: 100%; height: auto; display: block; }
     .page-wrapper { padding: 0 0.5rem; margin-top: 0.5rem; }
     .container { padding: 1.5rem; }
 }
+
 @media (max-width: 480px) {
     h1 { font-size: 1.5rem; }
-    .navbar-right-section { gap: 0.75rem; }
     .btn { padding: 0.5rem 0.8rem; font-size: 0.9rem; }
+}
+
+/* 
+  FIX TERAKHIR UNTUK NAVBAR MOBILE
+  Breakpoint dipilih di 600px, di mana layout biasanya mulai rusak.
+*/
+@media (max-width: 600px) {
+    #navbar {
+        flex-direction: column; /* Mengubah navbar menjadi layout vertikal */
+        align-items: stretch; /* Membuat setiap item mengambil lebar penuh */
+        gap: 0.75rem; /* Mengatur jarak antar baris */
+    }
+
+    /* Membuat kedua grup (kiri & kanan) mengambil lebar penuh */
+    .navbar-left-section,
+    .navbar-right-section {
+        width: 100%;
+        justify-content: center; /* Menengahkan tombol di dalam barisnya */
+    }
+
+    /* Membuat tombol "Buat Paste" mengisi ruang agar lebih menonjol */
+    .navbar-right-section .btn-primary {
+        flex-grow: 1;
+    }
 }
