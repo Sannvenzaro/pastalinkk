@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
-    <!-- Font Optimization -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap">
-    <!-- Local assets are now served from a simulated CDN path -->
-    <link rel="stylesheet" href="/cdn/css/global.css">
-    <link rel="stylesheet" href="/cdn/css/profile.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
     <div class="page-wrapper">
@@ -19,10 +14,30 @@
             <p style="text-align: center; padding: 2rem;">Memuat profil...</p>
         </div>
     </div>
-    <div id="edit-profile-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2>Edit Profil</h2><form id="edit-profile-form" class="form-container"><label for="profilePicture">Foto Profil Baru (Max 5MB):</label><input type="file" name="profilePicture" accept="image/png, image/jpeg, image/gif"><label for="bio">Bio:</label><textarea name="bio" id="modal-bio" rows="3" maxlength="150"></textarea><button type="submit" class="btn btn-primary">Simpan</button></form></div></div>
+    <!-- GANTI SELURUH DIV INI DI profile.html -->
+
+<div id="edit-profile-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">×</span>
+        <h2>Edit Profil</h2>
+        <form id="edit-profile-form" class="form-container">
+            <!-- FIX: Dibungkus dengan form-group -->
+            <div class="form-group">
+                <label for="profilePicture">Foto Profil Baru (Max 5MB):</label>
+                <input type="file" name="profilePicture" accept="image/png, image/jpeg, image/gif">
+            </div>
+            <!-- FIX: Dibungkus dengan form-group -->
+            <div class="form-group">
+                <label for="bio">Bio:</label>
+                <textarea name="bio" id="modal-bio" rows="3" maxlength="150"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+    </div>
+</div>
     <div id="change-password-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2>Ganti Password</h2><form id="change-password-form" class="form-container"><input type="password" name="currentPassword" placeholder="Password Saat Ini" required><input type="password" name="newPassword" placeholder="Password Baru" required><input type="password" name="confirmNewPassword" placeholder="Konfirmasi Password Baru" required><button type="submit" class="btn btn-primary">Simpan Password</button></form></div></div>
     <div id="info-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2 id="info-modal-title"></h2><p id="info-modal-message"></p></div></div>
     <div id="notification-modal" class="modal"><div class="modal-content"><span class="close-btn">×</span><h2 id="modal-title"></h2><p id="modal-message"></p></div></div>
-    <script type="module" src="/cdn/js/profile.js"></script>
+    <script type="module" src="/js/profile.js"></script>
 </body>
 </html>
