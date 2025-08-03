@@ -1,4 +1,4 @@
-/* paste.css (FINAL VERSION) */
+/* paste.css (FINAL VERSION + TOMBOL AKSI BARU) */
 /* NOTE: Form styles dasar ada di global.css */
 
 /* --- View Paste --- */
@@ -9,14 +9,27 @@
 .author-details h1 { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem; font-size: 1.25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .meta-info { color: var(--text-muted-color); font-size: 0.9rem; }
 .header-actions { display: flex; gap: 0.5rem; align-items: center; }
-.paste-actions { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; margin-bottom: 1rem; }
-.like-btn { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--text-muted-color); transition: color 0.2s, transform 0.2s; padding: 0; display: flex; align-items: center; }
+
+/* BARU: Layout untuk baris tombol aksi */
+.paste-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.5rem 0; margin-bottom: 1rem; flex-wrap: wrap; }
+.main-actions { display: flex; align-items: center; gap: 0.5rem; }
+
+.like-btn { background: none; border: none; cursor: pointer; font-size: 1.5rem; color: var(--text-muted-color); transition: color 0.2s, transform 0.2s; padding: 0; display: flex; align-items: center; margin-right: 0.5rem; }
 .like-btn.liked { color: var(--danger-color); }
 .like-btn.liked:hover { color: #ff6b6b; }
 .like-btn:not(.liked):hover { color: var(--text-color); }
 .like-btn .icon { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E"); width: 24px; height: 24px; transition: all 0.2s; }
 .like-btn.liked .icon { fill: var(--danger-color); }
-.like-count { font-weight: bold; }
+.like-count { font-weight: bold; margin-right: 1rem; }
+
+/* BARU: Style untuk tombol aksi tambahan dan ikon-ikonnya */
+.btn-subtle { display: inline-flex; align-items: center; gap: 0.4rem; }
+.btn-subtle [class^="icon-"] { width: 16px; height: 16px; background-color: currentColor; mask-repeat: no-repeat; mask-position: center; mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; -webkit-mask-size: contain; }
+.icon-copy { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='9' width='13' height='13' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'%3E%3C/path%3E%3C/svg%3E"); }
+.icon-raw { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='16 18 22 12 16 6'%3E%3C/polyline%3E%3Cpolyline points='8 6 2 12 8 18'%3E%3C/polyline%3E%3C/svg%3E"); }
+.icon-download { mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E"); }
+
+
 .code-container { background-color: #282c34; border-radius: 8px; overflow: hidden; }
 .code-container pre { margin: 0; }
 .code-container pre code { font-family: var(--font-mono); padding: 1.5rem !important; }
@@ -26,24 +39,11 @@
 .form-container { display: flex; flex-direction: column; gap: 1rem; }
 .form-container textarea { min-height: 200px; }
 .form-options { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-/* FIX UTAMA: Aturan untuk layout label dan input yang konsisten */
-.form-group {
-    display: flex;
-    flex-direction: column; /* Membuat label di atas, input di bawah */
-    gap: 0.5rem; /* Memberi jarak antara label dan input */
-    flex: 1;
-    min-width: 200px;
-}
-
-.form-group label {
-    color: var(--text-muted-color);
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; min-width: 200px; }
+.form-group label { color: var(--text-muted-color); font-size: 0.9rem; font-weight: 500; }
 .form-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem; }
 
 @media (max-width: 480px) {
     .form-options { flex-direction: column; }
+    .main-actions { flex-wrap: wrap; } /* Agar tombol tidak aneh di mobile */
 }
